@@ -23,16 +23,25 @@ android {
     }
     sourceSets{
         main{
+
             java.srcDirs += 'src/main/java'
+            res.srcDirs += 'src/main/res'
+            //google
             java.srcDirs += 'src/google/java'
             java.srcDirs += 'src/google/base'
             java.srcDirs += 'src/google/api9'
             java.srcDirs += 'src/google/api14'
             java.srcDirs += 'src/google/api21'
             java.srcDirs += 'src/google/api23'
-
-            res.srcDirs += 'src/main/res'
             res.srcDirs += 'src/google/res'
+
+            //uvc
+            java.srcDirs += 'src/uvc/libuvccamera/src/main/java'
+            java.srcDirs += 'src/uvc/usbCameraCommon/src/main/java'
+            res.srcDirs += 'src/uvc/libuvccamera/src/main/res'
+            jniLibs.srcDirs += 'src/uvc/libuvccamera/src/main/libs'
+            res.srcDirs += 'src/uvc/usbCameraCommon/src/main/res'
+
         }
     }
 }
@@ -40,4 +49,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    compile("com.serenegiant:common:1.4.3")
 }
